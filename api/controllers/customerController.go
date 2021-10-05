@@ -120,8 +120,12 @@ func UpdateCustomer(c *gin.Context) {
 
 	var customerModel models.Customer
 
-	if err := conn.DB.Where("clienteId = ?", c.Param("clienteId")).First(&customerModel).Error; err != nil {
-	  c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found!"})
+	if err := conn.DB.Where("Cliente_ID = ?", c.Query("clienteId")).First(&customerModel).Error; err != nil {
+	  c.JSON(http.StatusBadRequest, gin.H{
+		"Cve_Error": -1,
+		"Cve_Mensaje": err,
+		"data": nil,
+	})
 	  return
 	}
   
