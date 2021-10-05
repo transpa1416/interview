@@ -3,7 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
-	people "interview/api/models"
+	people "interview/consola/models"
 	"os"
 	"strconv"
 	"strings"
